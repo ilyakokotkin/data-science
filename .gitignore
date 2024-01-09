@@ -1,0 +1,60 @@
+# General
+.DS_Store
+Thumbs.db
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Node (for React frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+build/
+*.log
+
+# Python (for Django backend)
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.sqlite3
+*.sqlite3-journal
+db.sqlite3
+venv/
+.env
+
+# Django specific
+*.log
+local_settings.py
+db.sqlite3
+/db.sqlite3-journal
+media
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*~.nib
+local.env
+*.iml
+*.ipr
+*.iws
+out/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbnails
+
+# Other
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
