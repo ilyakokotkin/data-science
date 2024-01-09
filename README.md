@@ -6,7 +6,7 @@ This repository contains a collection of data science projects focusing on stati
 
 ### Currently
 
-#### 1. CSV Data Normality Assessment (Shapiro–Wilk Test)
+#### 1. Data Normality Assessment (Shapiro–Wilk Test)
 - **Description**: A web application that allows users to upload a `.csv` file and assesses the normality of data distribution using the Shapiro–Wilk test. It features a ReactJS frontend and a Python Flask backend.
 - **Technologies**: ReactJS, Python, Flask, Pandas, SciPy
 
