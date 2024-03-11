@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from scipy.stats import norm
+from scipy.stats import norm, f
 
 class CSVReader:
     @staticmethod
@@ -91,3 +91,41 @@ class ShapiroWilkTest:
 
         # TODO: implementation of the linear approximation for p-value calculation
         pass
+
+class FTestForEqualVariance:
+    @staticmethod
+    def perform_test(dataframe, column1, column2):
+        """Performs the F-Test for equal variance between two columns of a DataFrame.
+
+        Args:
+            dataframe: The DataFrame containing the data.
+            column1: The name of the first column to test.
+            column2: The name of the second column to test.
+
+        Returns:
+            A dictionary with the F statistic and the p-value.
+        """
+
+        data1 = dataframe[column1].dropna()
+        data2 = dataframe[column2].dropna()
+
+        # Calculate variances
+        var1 = np.var(data1, ddof=1)
+        var2 = np.var(data2, ddof=1)
+
+        # Ensure var1 is the larger variance to maintain F > 1
+        if var1 < var2:
+            var1, var2 = var2, var1
+            data1, data2 = data2, data1
+
+        # Calculate F statistic
+        F = var1 / var2
+
+        # Calculate degrees of freedom for each dataset
+        df1 = len(data1) - 1
+        df2 = len(data2) - 1
+
+        # Calculate p-value
+        p_value = 1 - f.cdf(F, df1, df2)
+
+        return {'F': F, 'p_value': p_value}
